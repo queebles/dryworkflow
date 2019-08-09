@@ -168,7 +168,7 @@ whichReadCommand <- function(
   }
 
   ## process file extensions present  -------------------------
-  TYPES <- unique(dataFile.type <- trim(tolower(tools::file_ext(data.files))))
+  TYPES <- unique(dataFile.type <- trimws(tolower(tools::file_ext(data.files))))
   READ.COMMANDS <- unlist(commands[TYPES])
   ## find any libraries present
   extraLibs <- unlist(lapply(stringr::str_split(unlist(READ.COMMANDS), "::"),
