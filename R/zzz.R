@@ -171,7 +171,7 @@ whichReadCommand <- function(
   TYPES <- unique(dataFile.type <- tolower(tools::file_ext(data.files)))
   READ.COMMANDS <- unlist(commands[TYPES])
   ## find any libraries present
-  extraLibs <- unlist(lapply(strsplit(unlist(READ.COMMANDS), split = "::"),
+  extraLibs <- unlist(lapply(strsplit(unlist(READ.COMMANDS), split = "\\::"),
                              function(x) if(length(x) > 1)
                                            paste0("library(", x[1], ")")))
 
