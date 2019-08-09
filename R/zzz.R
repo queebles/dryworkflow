@@ -184,7 +184,7 @@ whichReadCommand <- function(
   ## set commands for each file ------------------------------
   readDataExts <- unlist(commands[TYPES])
   read.data.command <- readDataExts[dataFile.type]
-  stringr::str_squish(names(read.data.command)) <- data.files
+  stringr::str_trim(names(read.data.command), side = c("both")) <- data.files
   
   attr(read.data.command, "extraLibs") <- unlist(extraLibs)
   attr(read.data.command, "extraArgs") <- extraArgs
