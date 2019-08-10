@@ -104,6 +104,13 @@ library(dryworkflow)
 options("dryworkflow")
 ```
 
+
+```{r}
+current.opts <- options()
+current.opts[["dryworkflow"]][[24]][2] <- "My Name"
+current.opts[["dryworkflow"]][[24]][3] <- "myname@email.com"
+options(current.opts)
+```
 #### A project with all default settings
 
 ```{r}
