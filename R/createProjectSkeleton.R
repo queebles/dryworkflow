@@ -591,15 +591,6 @@ createProjectSkeleton <-function(
                           length = length(Rsyntax.types) + length(Report.types))
   names(MakefileLines) <- c(Rsyntax.types, Report.types)
                        
-## ensure that files have the same length
-  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras, Rsyntax.types, Report.types)    
-  dir.project <- lapply(dir.project, `length<-`, max(lengths(lst)))
-  filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))  
-  print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
-  myFunction.files <- lapply(myFunction.files, `length<-`, max(lengths(lst))) 
-  template.files <- lapply(template.files, `length<-`, max(lengths(lst))) 
-  extras <- lapply(extras, `length<-`, max(lengths(lst))) 
-                       
   ## loop through R syntax files
   cat("R syntax files:\n")
   for (RS in Rsyntax.types){ # RS <- "read"
@@ -615,15 +606,6 @@ createProjectSkeleton <-function(
   }
 
   ## create report files -------------------------------------
-  
-## ensure that files have the same length
-  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras, Rsyntax.types, Report.types)  
-  dir.project <- lapply(dir.project, `length<-`, max(lengths(lst)))
-  filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))    
-  print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
-  myFunction.files <- lapply(myFunction.files, `length<-`, max(lengths(lst))) 
-  template.files <- lapply(template.files, `length<-`, max(lengths(lst))) 
-  extras <- lapply(extras, `length<-`, max(lengths(lst))) 
                        
   ## loop through report/presentations
   cat("R markdown and presentation files:\n")
