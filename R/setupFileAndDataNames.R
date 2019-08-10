@@ -248,15 +248,15 @@ setupFileAndDataNames <-
                           "dataCodebook")
   
            
-nrows(dataFiles)
-nrows(codebookFiles)
-nrows(RsyntaxFiles)
-nrows(reportFiles)
-nrows(RoutFiles)
-nrows(RDataFiles)
-nrows(dataFrames)
-nrows(codebookMatches)
-nrows(directories)
+nrow(dataFiles)
+nrow(codebookFiles)
+nrow(RsyntaxFiles)
+nrow(reportFiles)
+nrow(RoutFiles)
+nrow(RDataFiles)
+nrow(dataFrames)
+nrow(codebookMatches)
+nrow(directories)
            
   ## return "fileAndDataNames" S3 object
   fileAndDataNames <- list(dataFiles = dataFiles,
