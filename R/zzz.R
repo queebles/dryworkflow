@@ -184,7 +184,8 @@ whichReadCommand <- function(
   ## set commands for each file ------------------------------
   readDataExts <- unlist(commands[TYPES])
   read.data.command <- readDataExts[dataFile.type]
-  names(trimws(read.data.command)) <- data.files
+  read.data.command <- janitor::clean_names(read.data.command)
+  names(read.data.command) <- data.files
   
   attr(read.data.command, "extraLibs") <- unlist(extraLibs)
   attr(read.data.command, "extraArgs") <- extraArgs
