@@ -500,7 +500,7 @@ createProjectSkeleton <-function(
     report.which <- match.arg(report.which, c("first", "merge", "all"))
   }
   projectConfig$settings$report.which <- report.which
-
+                                     
   filesAndDFs <-
     setupFileAndDataNames(dir.project = dir.project,
                           destinations = destinations,
@@ -592,7 +592,7 @@ createProjectSkeleton <-function(
   names(MakefileLines) <- c(Rsyntax.types, Report.types)
                        
 ## ensure that files have the same length
-  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras, RS)    
+  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras)    
   dir.project <- lapply(projectDir, `length<-`, max(lengths(lst)))
   filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))  
   print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
@@ -617,7 +617,7 @@ createProjectSkeleton <-function(
   ## create report files -------------------------------------
   
 ## ensure that files have the same length
-  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras, RT)  
+  lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras)  
   dir.project <- lapply(projectDir, `length<-`, max(lengths(lst)))
   filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))    
   print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
