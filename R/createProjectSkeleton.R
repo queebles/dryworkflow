@@ -593,7 +593,7 @@ createProjectSkeleton <-function(
                        
 ## ensure that files have the same length
   lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras)    
-  dir.project <- lapply(projectDir, `length<-`, max(lengths(lst)))
+  dir.project <- lapply(dir.project, `length<-`, max(lengths(lst)))
   filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))  
   print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
   myFunction.files <- lapply(myFunction.files, `length<-`, max(lengths(lst))) 
@@ -618,7 +618,7 @@ createProjectSkeleton <-function(
   
 ## ensure that files have the same length
   lst <- list(dir.project, dir.project, print.mismatches, myFunction.files, template.files, extras)  
-  dir.project <- lapply(projectDir, `length<-`, max(lengths(lst)))
+  dir.project <- lapply(dir.project, `length<-`, max(lengths(lst)))
   filesAndDFs <- lapply(filesAndDFs, `length<-`, max(lengths(lst)))    
   print.mismatches <- lapply(print.mismatches, `length<-`, max(lengths(lst))) 
   myFunction.files <- lapply(myFunction.files, `length<-`, max(lengths(lst))) 
