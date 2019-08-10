@@ -121,19 +121,19 @@ createSyntaxR <-
     syntax.ext <- "R"
   }
   
-  ## project.steps options ------------------------------------------------
-  ## not good test - need some sort of project configuration
-  ## maybe not so needed
-  if (mode(dir.project) != "character") stop("dir.project wrong")
-  ## check correct classes
-  ## if (class(projectDirs) != "drywDestinationDirs")
-  ##   stop("'projectDirs' not of class 'drywDestinationDirs'")
-  if (class(filesAndDFs) != "fileAndDataNames")
-    stop("'filesAndDFs' not of class 'fileAndDataNames'")
-  if (mode(extras) != "list")
-    stop("'extras' not of mode 'list'")
-  ## if (mode(data.dir) != "list")
-  ##   stop("'data.dir' not of mode 'list'")
+#  ## project.steps options ------------------------------------------------
+#  ## not good test - need some sort of project configuration
+#  ## maybe not so needed
+#  if (mode(dir.project) != "character") stop("dir.project wrong")
+#  ## check correct classes
+#  ## if (class(projectDirs) != "drywDestinationDirs")
+#  ##   stop("'projectDirs' not of class 'drywDestinationDirs'")
+#  if (class(filesAndDFs) != "fileAndDataNames")
+#    stop("'filesAndDFs' not of class 'fileAndDataNames'")
+#  if (mode(extras) != "list")
+#    stop("'extras' not of mode 'list'")
+#  ## if (mode(data.dir) != "list")
+#  ##   stop("'data.dir' not of mode 'list'")
   
   ## libraries --------------------------------------------------
   if (is.null(libraries)){
