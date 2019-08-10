@@ -247,17 +247,6 @@ setupFileAndDataNames <-
   names(directories) <- c(project.steps, "dataDeriv", "dataOrig",
                           "dataCodebook")
   
-           
-print(nrow(dataFiles))
-print(nrow(codebookFiles))
-print(nrow(RsyntaxFiles))
-print(nrow(reportFiles))
-print(nrow(RoutFiles))
-print(nrow(RDataFiles))
-print(nrow(dataFrames))
-print(nrow(codebookMatches))
-print(nrow(directories))
-           
   ## return "fileAndDataNames" S3 object
   fileAndDataNames <- list(dataFiles = dataFiles,
                            codebookFiles = codebookFiles,
