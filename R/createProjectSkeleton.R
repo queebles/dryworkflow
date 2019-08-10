@@ -753,7 +753,7 @@ createProjectSkeleton <-function(
   ## system2("git", paste("git commit -m 'Intial commit for ",
   ##                      name.project, "'", sep=""))
   sgit.3 <- system2("git",
-                    stringr::str_c("commit -m 'Intial commit for ",
+                    stringr::str_c("commit -m 'Intial_commit_for ",
                                    name.project, "'"),
                     stdout = TRUE, stderr = TRUE)
   print(sgit.3, quote = FALSE)
