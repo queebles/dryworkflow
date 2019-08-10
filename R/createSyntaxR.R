@@ -338,7 +338,7 @@ createSyntaxR <-
 #  }
                                                
    if (project.steps != "compare"){
-    if (! length( unique( subst.strings1[[1]])) == 1){
+    if ( length( unique( subst.strings1[[1]])) == 1){
       print(subst.strings1)
       stop("not all elements of 'subst.string1' have same length")
     }
