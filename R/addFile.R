@@ -178,6 +178,10 @@ addFile <- function(
   newFilesAndDFs$directories <- projectConfig$filesAndDFs$directories
   class(newFilesAndDFs) <- "fileAndDataNames" ## cheating
 
+  ## ensure that files have the same length
+  lst <- list(projectDir, filesAndDFs, RS, template.dir)  
+  lst[which.max(sapply(lst, nrow))]
+
   ## loop through R syntax files
   cat("R syntax files:\n")
   for (RS in Rsyntax.types){ # RS <- "read"
