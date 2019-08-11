@@ -4,6 +4,8 @@ The information below is also available in package help.
 
 Also see [the blog site](http://www.petebaker.id.au/r-package-dryworkflow "Peter Baker's R blog") for details.
 
+Queebles: The changes I have made to this package make it work for the current version of R and RStudio as of Aug 11, 2019.
+
 ## Installation
 
 In *R* as Administrator, to install please use the following:
@@ -103,7 +105,7 @@ options("dryworkflow" = list(git = list(user.name = "My Name", user.email = "myn
 library(dryworkflow)
 options("dryworkflow")
 ```
-
+Queebles: I found that the above example deletes all other package options rather than overwrites the specified options, which is problematic. I have been able to change local options using the code below but the changes are only active for the current session.
 
 ```{r}
 current.opts <- options()
