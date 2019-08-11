@@ -63,8 +63,8 @@ Queebles: With Choclatey from [https://chocolatey.org/](https://chocolatey.org/)
 
 ```{bash}
 choco install git
-choco install make
 choco install strawberryperl
+choco install make
 choco install pandoc
 ```
 
