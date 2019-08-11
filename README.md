@@ -58,6 +58,7 @@ Finally, check that latex is available with
 ```{bash}
 pdflatex --version
 ```
+Queebles: I have found that Choclatey [https://chocolatey.org/](https://chocolatey.org/) made the above installs much easier, with fewer issues.
 
 ## Using the dryworkflow package
 
