@@ -14,6 +14,12 @@ In *R* as Administrator, to install please use the following:
 library(devtools)  # available on CRAN (or github)
 devtools::install_github("petebaker/dryworkflow", dependencies = TRUE)
 ```
+Queebles: In order to download my updated version of this package, use the following code:
+```{r}
+library(devtools)  # available on CRAN (or github)
+devtools::install_github("queebles/dryworkflow", dependencies = TRUE)
+```
+After sufficient testing, I will submit changes to the original developer.
 
 ### Prerequisites
 
