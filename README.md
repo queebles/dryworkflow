@@ -59,7 +59,7 @@ Finally, check that latex is available with
 pdflatex --version
 ```
 
-Queebles: I have found that with Choclatey from [https://chocolatey.org/](https://chocolatey.org/), the *make* install went much easier, with fewer issues. I would recommend it for *git* and *pandoc* as well. I found that perl was needed for *make* and went with strawberry perl.
+Queebles: With Choclatey from [https://chocolatey.org/](https://chocolatey.org/), the *make* install went much easier, with fewer issues. I would recommend it for *git* and *pandoc* as well. Perl was needed for *make* and I went with strawberry perl.
 
 ```{bash}
 choco install git
