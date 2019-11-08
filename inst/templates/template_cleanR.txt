@@ -51,14 +51,13 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
 ## NB: You can source (load) all files in a directory 'myLib' with
-lapply(Sys.glob(file.path("lib", "*.R")), source)
-@@MYLIB.FILES@@
+local(file.show(Sys.glob(file.path("C:/Users/unlim/Documents/R/Recipes/lib/", "Cleaning", *.R")))
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
 @@INPUT.COMMANDS@@
 
 ## Data structure(s)
-## ls.str() # uncomment this line to see structure of all objects in workspace
+ls.str() # uncomment this line to see structure of all objects in workspace
 str(@@DATAFRAME.INPUT@@)
 
 
