@@ -36,7 +36,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 @@LICENCE@@ (eg licence GPL3 see <http://www.gnu.org/licenses/>)
 ------- END: DELETE THIS SECTION ---------------------------------
 ### File:    @@SYNTAX.FILE@@
-### Purpose: @@PROJECT.STEP@@ data from '@@DATAFILE@@' stored in 
+### Purpose: Cleaning data stored in 
 ###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
 ###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
 ### Created: @@DATE.CREATED@@ initially by package 'dryworkflow'
@@ -44,9 +44,6 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 ### Licence: @@LICENCE@@
 
 ### Changelog: -- insert comments and times re changes here --
-
-## Specific libraries to be used. NB: can also be loaded in .Rprofile
-@@LIBRARIES@@
 
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
