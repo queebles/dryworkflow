@@ -74,9 +74,9 @@ setupFileAndDataNames <-
   function(dir.project, destinations, projectConfig, projectDirs, 
            filenames = NULL,
            initial.files = NULL, mnemonic = "",
-           project.steps = c("read", "codebook", "clean", "summary", "analyse",
-             "compare", "mergeAll", "reportRmd", "reportRnw", "presentRmd",
-             "beamerRmd", "beamerRnw"),
+           project.steps = c("read",
+  "clean", "summary", "analyse", "mergeAll", "codebook", "explore", "model", "reportRmd",
+  "regression", "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
            report.markdown = c("Rmd", "Rnw"),
            report.which = c("first", "merge", "all"))
 {
@@ -115,9 +115,9 @@ setupFileAndDataNames <-
   if (PROJ.SKEL){  # new project - perhaps most of this can be reused!
     project.steps <-
       match.arg(project.steps,
-                c("read", "codebook", "clean", "summary", "analyse",
-                  "compare", "mergeAll", "reportRmd", "reportRnw",
-                  "presentRmd", "beamerRmd", "beamerRnw"), several.ok = TRUE)
+                c("read",
+  "clean", "summary", "analyse", "mergeAll", "codebook", "explore", "model", "reportRmd",
+  "regression", "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"), several.ok = TRUE)
     report.markdown <-
       match.arg(report.markdown, c("Rmd", "Rnw"), several.ok = TRUE)
     report.which <- match.arg(report.which)
@@ -212,7 +212,7 @@ setupFileAndDataNames <-
 
   ## data frame names ---------------------------------------------
   suffix <- c("_orig", "_cl", "_sum", "_anly") # best to have untouched orig
-  names(suffix) <- c("read", "clean", "summary", "analyse")
+  names(suffix) <- c("read", "clean", "summary", "analyse", "explore", "model", "regression")
   dataFrames <-
     lapply(allRsyntax, function(y){
       stringr::str_c(stringr::str_replace( dataFiles, "\\.|-", "_"),
@@ -275,6 +275,6 @@ setupFileAndDataNames <-
 ##                              # mistakes made - better strategy?
 ## filenames <- NULL
 ## project.steps <- c("read", "clean", "summary", "analyse",
-##                    "compare", "mergeAll", "report")
+##                    "compare", "mergeAll", "report", "explore", "model", "regression")
 ## report.markdown <- c("Rmd", "Rnw")
 ## mnemonic <- NULL
