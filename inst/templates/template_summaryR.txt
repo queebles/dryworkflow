@@ -37,7 +37,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 @@LICENCE@@ (eg licence GPL3 see <http://www.gnu.org/licenses/>)
 ------- END: DELETE THIS SECTION ---------------------------------
 ### File:    @@SYNTAX.FILE@@
-### Purpose: Summarizing data stored 
+### Purpose: Regression on data stored 
 ###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
 ###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
 ### Created: @@DATE.CREATED@@ initially by package 'dryworkflow'
@@ -49,7 +49,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
 ## NB: You can source (load) all files in a directory 'myLib' with
-file.show(Sys.glob(file.path("../R/Recipes/", "*", "*.R")))
+file.show(Sys.glob(file.path("./Recipes", "*/Regression/", "*", "*.R")))
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
 @@INPUT.COMMANDS@@
