@@ -4,7 +4,7 @@ The information below is also available in package help.
 
 Also see [the blog site](http://www.petebaker.id.au/r-package-dryworkflow "Peter Baker's R blog") for details.
 
-Queebles: The changes I have made to this package make it work for the current version of R as of Aug 11, 2019.
+Queebles: The changes I have made to this package make it work according to my needs as well as being functional for the current version of R as of Aug 11, 2019.
 
 ## Installation
 
