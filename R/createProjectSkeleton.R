@@ -476,7 +476,7 @@ createProjectSkeleton <-function(
   workingDirs <- projectDirs$working.dirs
   syntaxDirs <- list(readMerge = c("read", "clean", "compare", "mergeAll",
                                    "codebook"),
-                     work = c("summary", "analyse"),
+                     work = c("summary", "analyse", "explore", "model", "regression"),
                      reports = "report")
   if (! all(names(syntaxDirs) %in% names(workingDirs)))
     stop("wrong directories specified for creating R syntax")
@@ -540,6 +540,7 @@ createProjectSkeleton <-function(
   template.choices <- c("readR", "cleanR", "summaryR", "analyseR",
                         "codebookR", "mergeAllR", "compareR",
                         "reportRmd", "reportRnw", "presentRmd", "beamerRnw",
+                        "exploreR", "modelR", "regressionR",
                         "make", "custom")
   ## template.dir <- "~/Data/A_Projects/R.workflow/package" # REPLACE !!!!
   ## template.dir <- "./templates"
