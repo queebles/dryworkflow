@@ -149,7 +149,7 @@ createSyntaxR <-
   if (is.null(myFunction.files)) myFunction.files <- ""
 
   ## dependencies --------------------------------------------- ?????????
-  reportDeps <- c("clean", "summary", "analyse", "explore", "model", "regression")
+  reportDeps <- c("clean", "summary", "analyse")
   if (is.null(makefile.depends)){
     makefileDepends <- list(read = "data", clean = "read", mergeAll = "clean",
                             summary = "clean", analyse = "clean",
@@ -325,8 +325,14 @@ createSyntaxR <-
     subst.strings1 <- c(subst.strings1,
                         list(RDATA.SUMMARY.SAVED = rdataSum,
                              RDATA.ANALYSIS.SAVED = rdataAna,
+                             RDATA.ANALYSIS.SAVED = rdataExp,
+                             RDATA.ANALYSIS.SAVED = rdataMod,
+                             RDATA.ANALYSIS.SAVED = rdataReg,
                              DATAFRAME.SUMMARY = dataFrameSum,
-                             DATAFRAME.ANALYSIS = dataFrameAna))
+                             DATAFRAME.SUMMARY = dataFrameAna,
+                             DATAFRAME.SUMMARY = dataFrameExp,
+                             DATAFRAME.SUMMARY = dataFrameMod,
+                             DATAFRAME.ANALYSIS = dataFrameReg))
     ## drop NULLs
     subst.strings1[names(subst.strings1[sapply(subst.strings1,
                                                function(x) (is.null(x)))])] <-
