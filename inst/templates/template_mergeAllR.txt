@@ -29,26 +29,20 @@ source(file.path('../lib', 'tttt.R')
 @@MYLIB.DIR@@ (eg ./lib) - NOT USED CURRENTLY
 @@LICENCE@@ (eg licence GPL3 see <http://www.gnu.org/licenses/>)
 ------- END: DELETE THIS SECTION ---------------------------------
-### Warning: This file is highly unlikely to work without modification
-###
 ### File:    @@SYNTAX.FILE@@
-### Purpose: @@PROJECT.STEP@@: cleaned data files in directory
-##           '@@DIR.DATA.INPUT@@'
-###          and store in '@@RDATA.SAVED@@' in directory '@@DIR.DATA.SAVED@@'
-### Created: @@DATE.CREATED@@ by 'dryworkflow::createProjectSkeleton'
-### Author:  @@AUTHOR@@
+### Purpose: Merging data stored in 
+###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
+###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
+### Created: @@DATE.CREATED@@ initially by package 'dryworkflow'
+### Author:  Danielle Lynch
 ### Licence: @@LICENCE@@
 
 ### Changelog: -- insert comments and times re changes here --
 
-## Specific libraries to be used. NB: can also be loaded in .Rprofile
-@@LIBRARIES@@
-
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
 ## NB: You can source (load) all files in a directory 'myLib' with
-##     lapply(Sys.glob(file.path("myLib", "*.R")), source)
-@@MYLIB.FILES@@
+file.show(Sys.glob(file.path("../R/Recipes/", "*", "*.R")))
 
 DATAFILES <- @@DATAFILE@@
 DATAFRAMES <- @@DATAFRAME.INPUT@@
