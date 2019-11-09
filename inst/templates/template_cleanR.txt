@@ -48,7 +48,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
 ## NB: You can source (load) all files in a directory 'myLib' with
-file.show(Sys.glob(file.path("../R/Recipes/", "*", "*.R")))
+file.show(Sys.glob(file.path("./Recipes", "*/Cleaning", "*.R")))
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
 @@INPUT.COMMANDS@@
