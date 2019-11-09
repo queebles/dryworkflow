@@ -77,7 +77,7 @@ file.copy(system.file('demoFiles', 'small2_codebook.csv',
 ## NB: In practice, always check directories, R syntax  etc
 ##     before using 'make'
 createProjectSkeleton(dir.proj = "testProject2",
-                      name.project = "Experiment 1",
+                      name.project = "Experiment_1",
                       dontmove = "dryworkflow-Ex.R")
 }
 
