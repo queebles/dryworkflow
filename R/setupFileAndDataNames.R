@@ -211,7 +211,7 @@ setupFileAndDataNames <-
              stringr::str_replace(y, "^read", "orig")})
 
   ## data frame names ---------------------------------------------
-  suffix <- c("_orig", "_cl", "_sum", "_anly") # best to have untouched orig
+  suffix <- c("_orig", "_cl", "_sum", "_anly", "_exp", "_mod", "_reg") # best to have untouched orig
   names(suffix) <- c("read", "clean", "summary", "analyse", "explore", "model", "regression")
   dataFrames <-
     lapply(allRsyntax, function(y){
