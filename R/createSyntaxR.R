@@ -77,9 +77,9 @@
 createSyntaxR <-
   function(
     dir.project, filesAndDFs, template,
-    project.steps = c("read", "clean", "summary", "analyse", "mergeAll",
-      "codebook", "reportRmd", "reportRnw", "presentRmd", "beamerRmd",
-      "beamerRnw"),
+    project.steps = c("read",
+  "clean", "summary", "analyse", "mergeAll", "codebook", "explore", "model", "reportRmd",
+  "regression", "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
     makefile.depends = NULL, makefile.targets = c("Rout", "pdf"),
     myFunction.files = NULL,  libraries = NULL,
     template.dir = NULL, print.mismatches = FALSE,
@@ -94,7 +94,7 @@ createSyntaxR <-
 {
 
   ##  targets = c("clean", "summary", "analysis"),
-  ##  depends = c("read", "codebook", "clean", "summary", "analysis"),
+  ##  depends = c("read", "codebook", "clean", "summary", "analysis", "explore", "model", "regression"),
   ##  projectDirs, filesAndDFs,
   ## gsub(".R$", ".Rout", basename(syntax.file)),
   ## makefile.pdf = gsub(".R$", ".pdf", basename(syntax.file)),
@@ -149,11 +149,12 @@ createSyntaxR <-
   if (is.null(myFunction.files)) myFunction.files <- ""
 
   ## dependencies --------------------------------------------- ?????????
-  reportDeps <- c("clean", "summary", "analyse")
+  reportDeps <- c("clean", "summary", "analyse", "explore", "model", "regression")
   if (is.null(makefile.depends)){
     makefileDepends <- list(read = "data", clean = "read", mergeAll = "clean",
                             summary = "clean", analyse = "clean",
-                            codebook = "codebook",
+                            codebook = "codebook", explore = "clean", model = "clean",
+                            regression = "clean",
                             reportRmd = reportDeps, reportRnw = reportDeps,
                             presentRmd = reportDeps,
                             beamerRmd = reportDeps, beamerRnw = reportDeps)
@@ -215,8 +216,14 @@ createSyntaxR <-
     dataFrameIn <- filesAndDFs$dataFrames[["clean"]]
     dataFrameSum <- filesAndDFs$dataFrames[["summary"]]
     dataFrameAna <- filesAndDFs$dataFrames[["analyse"]]
+    dataFrameExp <- filesAndDFs$dataFrames[["explore"]]
+    dataFrameMod <- filesAndDFs$dataFrames[["model"]]
+    dataFrameReg <- filesAndDFs$dataFrames[["regression"]]
     rdataSum <- filesAndDFs$RDataFiles[["summary"]]
     rdataAna <- filesAndDFs$RDataFiles[["analyse"]]
+    rdataExp <- filesAndDFs$RDataFiles[["explore"]]
+    rdataMod <- filesAndDFs$RDataFiles[["model"]]
+    rdataReg <- filesAndDFs$RDataFiles[["regression"]]
   } else {
     dataFrameIn <- 
       switch(project.steps, read = filesAndDFs$dataFrames[["read"]],
