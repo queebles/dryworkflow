@@ -78,8 +78,8 @@ createSyntaxR <-
   function(
     dir.project, filesAndDFs, template,
     project.steps = c("read",
-  "clean", "summary", "analyse", "mergeAll", "codebook", "explore", "model", "reportRmd",
-  "regression", "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
+  "clean", "summary", "analyse", "mergeAll", "codebook", "reportRmd",
+   "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
     makefile.depends = NULL, makefile.targets = c("Rout", "pdf"),
     myFunction.files = NULL,  libraries = NULL,
     template.dir = NULL, print.mismatches = FALSE,
@@ -94,7 +94,7 @@ createSyntaxR <-
 {
 
   ##  targets = c("clean", "summary", "analysis"),
-  ##  depends = c("read", "codebook", "clean", "summary", "analysis", "explore", "model", "regression"),
+  ##  depends = c("read", "codebook", "clean", "summary", "analysis"),
   ##  projectDirs, filesAndDFs,
   ## gsub(".R$", ".Rout", basename(syntax.file)),
   ## makefile.pdf = gsub(".R$", ".pdf", basename(syntax.file)),
@@ -153,8 +153,7 @@ createSyntaxR <-
   if (is.null(makefile.depends)){
     makefileDepends <- list(read = "data", clean = "read", mergeAll = "clean",
                             summary = "clean", analyse = "clean",
-                            codebook = "codebook", explore = "clean", model = "clean",
-                            regression = "clean",
+                            codebook = "codebook",
                             reportRmd = reportDeps, reportRnw = reportDeps,
                             presentRmd = reportDeps,
                             beamerRmd = reportDeps, beamerRnw = reportDeps)
@@ -216,14 +215,8 @@ createSyntaxR <-
     dataFrameIn <- filesAndDFs$dataFrames[["clean"]]
     dataFrameSum <- filesAndDFs$dataFrames[["summary"]]
     dataFrameAna <- filesAndDFs$dataFrames[["analyse"]]
-    dataFrameExp <- filesAndDFs$dataFrames[["explore"]]
-    dataFrameMod <- filesAndDFs$dataFrames[["model"]]
-    dataFrameReg <- filesAndDFs$dataFrames[["regression"]]
     rdataSum <- filesAndDFs$RDataFiles[["summary"]]
     rdataAna <- filesAndDFs$RDataFiles[["analyse"]]
-    rdataExp <- filesAndDFs$RDataFiles[["explore"]]
-    rdataMod <- filesAndDFs$RDataFiles[["model"]]
-    rdataReg <- filesAndDFs$RDataFiles[["regression"]]
   } else {
     dataFrameIn <- 
       switch(project.steps, read = filesAndDFs$dataFrames[["read"]],
@@ -325,14 +318,8 @@ createSyntaxR <-
     subst.strings1 <- c(subst.strings1,
                         list(RDATA.SUMMARY.SAVED = rdataSum,
                              RDATA.ANALYSIS.SAVED = rdataAna,
-                             RDATA.ANALYSIS.SAVED = rdataExp,
-                             RDATA.ANALYSIS.SAVED = rdataMod,
-                             RDATA.ANALYSIS.SAVED = rdataReg,
                              DATAFRAME.SUMMARY = dataFrameSum,
-                             DATAFRAME.SUMMARY = dataFrameAna,
-                             DATAFRAME.SUMMARY = dataFrameExp,
-                             DATAFRAME.SUMMARY = dataFrameMod,
-                             DATAFRAME.ANALYSIS = dataFrameReg))
+                             DATAFRAME.SUMMARY = dataFrameAna))
     ## drop NULLs
     subst.strings1[names(subst.strings1[sapply(subst.strings1,
                                                function(x) (is.null(x)))])] <-
