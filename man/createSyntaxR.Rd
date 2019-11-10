@@ -5,8 +5,8 @@
 \title{Create \code{R} syntax for reading, cleaning, summarising and analysing}
 \usage{
 createSyntaxR(dir.project, filesAndDFs, template, project.steps = c("read",
-  "clean", "summary", "analyse", "mergeAll", "codebook", "explore", "model", "reportRmd",
-  "regression", "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
+  "clean", "summary", "analyse", "mergeAll", "codebook", "reportRmd",
+  "reportRnw", "presentRmd", "beamerRmd", "beamerRnw"),
   makefile.depends = NULL, makefile.targets = c("Rout", "pdf"),
   myFunction.files = NULL, libraries = NULL, template.dir = NULL,
   print.mismatches = FALSE, overwrite.file = FALSE, string.prefix = "@@",
@@ -31,9 +31,6 @@ package.}
 as a vector of strings. Options are \dQuote{read} to read data
 (always assumed present), \dQuote{clean} clean data,
 \dQuote{summary} summary statistics and basic plots,
-\dQuote{explore} exploratory data analysis,
-\dQuote{model} data modeling,
-\dQuote{regression} regression,
 \dQuote{analyse} perform statistical analysis, \dQuote{compare}
 compare datasets and in particular different versions of the same
 data set, \dQuote{mergeAll} merge data sets of more than one; and
