@@ -540,7 +540,6 @@ createProjectSkeleton <-function(
   template.choices <- c("readR", "cleanR", "summaryR", "analyseR",
                         "codebookR", "mergeAllR", "compareR",
                         "reportRmd", "reportRnw", "presentRmd", "beamerRnw",
-                        "exploreR", "modelR", "regressionR",
                         "make", "custom")
   ## template.dir <- "~/Data/A_Projects/R.workflow/package" # REPLACE !!!!
   ## template.dir <- "./templates"
