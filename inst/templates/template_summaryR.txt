@@ -37,7 +37,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 @@LICENCE@@ (eg licence GPL3 see <http://www.gnu.org/licenses/>)
 ------- END: DELETE THIS SECTION ---------------------------------
 ### File:    @@SYNTAX.FILE@@
-### Purpose: Regression on data stored 
+### Purpose: Summary statistics and basic plots on data stored 
 ###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
 ###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
 ### Created: @@DATE.CREATED@@ initially by package 'dryworkflow'
