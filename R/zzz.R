@@ -293,7 +293,7 @@ whichReadCommand <- function(
   template.choices <- c("readR", "cleanR", "summaryR", "analyseR",
                         "codebookR", "mergeAllR", "compareR",
                         "reportRmd", "reportRnw", "presentRmd", "beamerRmd",
-                        "beamerRnw", "exploreR", "modelR", "regressionR", "make", "custom")
+                        "beamerRnw", "make", "custom")
   TEMPLATES <- stringr::str_c("template_", template.choices, ".txt")
   names(TEMPLATES) <- template.choices
   PRINT.MISMATCHES <- FALSE # print mismatches when creating syntax or
