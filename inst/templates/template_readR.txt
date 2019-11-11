@@ -45,7 +45,7 @@ source(file.path('../lib', 'tttt.R')
 file.show(Sys.glob(file.path("../Recipes", "*/Importing", "*.R")))
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
-@@INPUT.COMMANDS@@
+load()
 
 ## Data structure(s)
 ls.str() # uncomment this line to see structure of all objects in workspace
