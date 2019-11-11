@@ -49,15 +49,15 @@ load()
 
 ## Data structure(s)
 ls.str() # uncomment this line to see structure of all objects in workspace
-str(@@DATAFRAME.INPUT@@)
+str()
 
 ### You can insert any transformations here or tidy up variable names
 ### and so on but ideally these should be carried out when cleaning
 ### the data so that an unchanged original version is stored initially
 
 ### Store data for subsequent analysis
-comment(@@DATAFRAME.SAVED@@) <-
-  paste("Data read from '@@DATAFILE@@' at", date())
+comment() <-
+  paste("Data read from 'filename' at", date())
 
 save(@@DATAFRAME.SAVED@@,
   file = file.path("@@DIR.DATA.SAVED@@", "@@RDATA.SAVED@@"))
