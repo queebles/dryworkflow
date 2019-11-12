@@ -49,15 +49,14 @@ load()
 
 ## Data structure(s)
 ls.str() # uncomment this line to see structure of all objects in workspace
-str()
+str(data_orig)
 
 ### You can insert any transformations here or tidy up variable names
 ### and so on but ideally these should be carried out when cleaning
 ### the data so that an unchanged original version is stored initially
 
 ### Store data for subsequent analysis
-comment() <-
-  paste("Data read from 'filename' at", date())
+comment(data_orig) <-
+  paste("Data read from 'orig_.RData' at", date())
 
-save(@@DATAFRAME.SAVED@@,
-  file = file.path("@@DIR.DATA.SAVED@@", "@@RDATA.SAVED@@"))
+save(data_orig, file = file.path("./reports", "orig_.RData"))
