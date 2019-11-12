@@ -44,6 +44,8 @@ source(file.path('../lib', 'tttt.R')
 ## NB: You can source (load) all files in a directory 'myLib' with
 file.show(Sys.glob(file.path("../Recipes", "*/01 Read", "*.R")))
 
+pacman::p_load(tidyverse, cleaner, styler, funModeling, DataExplorer, psych, visdat, inspectdf, GGally, RColorBrewer, ExPanDaR, haven)
+
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
 load()
 
