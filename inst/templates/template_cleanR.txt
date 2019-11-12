@@ -51,14 +51,14 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 file.show(Sys.glob(file.path("../Recipes", "*/Cleaning", "*.R")))
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
-@@INPUT.COMMANDS@@
+load("./reports/orig_.RData")
 
 ## Data structure(s)
 ls.str() # uncomment this line to see structure of all objects in workspace
-str(@@DATAFRAME.INPUT@@)
+str(data_orig)
 
 
-@@DATAFRAME.SAVED@@ <- @@DATAFRAME.INPUT@@
+data_cl <- data_orig
 
 ### Clean data  -------------------------------------------------
 
@@ -66,15 +66,15 @@ str(@@DATAFRAME.INPUT@@)
 ### checks, modify values (and ideally date and document here and
 ### elsewhere)
 
-summary(@@DATAFRAME.SAVED@@)
+summary(data_cl)
 
-names(@@DATAFRAME.SAVED@@)
+names(data_cl)
 
 ### Store data for subsequent analysis  --------------------------
 
-oldComment <- comment(@@DATAFRAME.SAVED@@)
-newComment  <- paste("Data '@@DATAFRAME.INPUT@@' from '@@RDATA.INPUT@@' cleaned at", date())
-comment(@@DATAFRAME.SAVED@@) <- c(newComment, oldComment)
+oldComment <- comment(data_cl)
+newComment  <- paste("Data 'data_orig' from 'orig_.RData' cleaned at", date())
+comment(data_cl) <- c(newComment, oldComment)
 
-save(@@DATAFRAME.SAVED@@,
-  file = file.path("@@DIR.DATA.SAVED@@", "@@RDATA.SAVED@@"))
+save(data_cl,
+  file = file.path("./reports", "clean_.RData"))
