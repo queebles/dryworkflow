@@ -31,7 +31,7 @@ source(file.path('../lib', 'tttt.R')
 ------- END: DELETE THIS SECTION ---------------------------------
 ### File:    @@SYNTAX.FILE@@
 ### Purpose: Reading data stored
-###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
+###          in file orig_.RData in directory './reports'
 ###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
 ### Created: @@DATE.CREATED@@ initially by package 'dryworkflow'
 ### Author:  Danielle Lynch
