@@ -50,7 +50,7 @@ source(file.path(@@MYLIB.DIR@@, 'tttt.R')
 ## NB: You can source (load) all files in a directory 'myLib' with
 file.show(Sys.glob(file.path("../Recipes", "*/Cleaning", "*.R")))
 
-pacman::p_load(tidyverse, cleaner, funModeling, DataExplorer, psych, visdat, inspectdf, GGally, RColorBrewer, ExPanDaR)
+pacman::p_load(tidyverse, cleaner, funModeling, DataExplorer, psych, visdat, inspectdf, GGally, RColorBrewer, ExPanDaR, haven)
 
 ### Read/Load data in file @@DIR.DATA.INPUT@@/@@RDATA.INPUT@@  ---------
 load("./reports/orig_.RData")
