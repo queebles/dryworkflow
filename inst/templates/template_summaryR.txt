@@ -70,16 +70,16 @@ str(@@DATAFRAME.INPUT@@)
 N.SAMPLE <- 100
 N.COLS <- 10
 
-if (dim(@@DATAFRAME.INPUT@@)[1] > N.SAMPLE){
-  df1 <- @@DATAFRAME.INPUT@@[sample(1:dim(@@DATAFRAME.INPUT@@)[1], N.SAMPLE),] 
+if (dim(data_cl)[1] > N.SAMPLE){
+  data_cl_sample <- data_cl[sample(1:dim(data_cl)[1], N.SAMPLE),] 
 } else {
-  df1 <- @@DATAFRAME.INPUT@@
+  data_cl_sample <- data_cl
 }
 
 ## Summary statistics:
 
-cat("Summary statistics for (possibly a sample of) '@@DATAFRAME.INPUT@@':\n")
-summary(df1)
+cat("Summary statistics for (possibly a sample of) 'data_cl':\n")
+summary(data_cl_sample)
     
 ### Example: simple plot of data
 
@@ -87,26 +87,26 @@ summary(df1)
 ## less groups as long as at least one of each or scatterplot
 ## matrix if all numeric or moasic plot if 
 
-num.vars <- names(df1)[sapply(df1, is.numeric)]
+num.vars <- names(data_cl_sample)[sapply(data_cl_sample, is.numeric)]
 (n.num <- length(num.vars)) # no. of numeric variables
 
-fac.vars <- names(df1)[sapply(df1, function(x) is.factor(x) && nlevels(x)<=5)]
+fac.vars <- names(data_cl_sample)[sapply(data_cl_sample, function(x) is.factor(x) && nlevels(x)<=5)]
 (n.fac <- length(fac.vars)) # no. of factors with 5 or less levels
 
 if (require(RcmdrMisc))	{
-  RcmdrMisc::numSummary(df1[,num.vars])
+  RcmdrMisc::numSummary(data_cl_sample[,num.vars])
 }
 if (n.num > 0 & n.fac > 0) { # boxplot if at least 1 numeric and 1 factor
   x <- num.vars[1]
   y <- fac.vars[1] # just in case ID stored as numeric
-  xlab <- attr(df1[,x], 'label')
-  ylab <- attr(df1[,y], 'label')
+  xlab <- attr(data_cl_sample[,x], 'label')
+  ylab <- attr(data_cl_sample[,y], 'label')
   if (length(xlab) == 0) xlab <- x
   if (length(ylab) == 0) ylab <- y
   form1 <- formula(paste(y,'~', x))
-  print(bwplot(form1, data=df1, xlab=xlab, main=ylab))
+  print(bwplot(form1, data=data_cl_sample, xlab=xlab, main=ylab))
   form2 <- formula(paste(x,'~', y))
-  print(summary(lm(form2, data=df1)))
+  print(summary(lm(form2, data=data_cl_sample)))
 
   ## Example of Hmisc table
   if (require(Hmisc)){
@@ -116,7 +116,7 @@ if (n.num > 0 & n.fac > 0) { # boxplot if at least 1 numeric and 1 factor
     } else {
     form3 <- formula(paste(y,'~', paste(num.vars, collapse="+")))
     }
-  table1 <- Hmisc::summary.formula(form3, data = df1, method="reverse")
+  table1 <- Hmisc::summary.formula(form3, data = data_cl_sample, method="reverse")
   cat("Example summary table using 'Hmisc'")
   print(table1)
   } else {
@@ -125,24 +125,24 @@ if (n.num > 0 & n.fac > 0) { # boxplot if at least 1 numeric and 1 factor
 }
 
 if (n.num>1) { # if at least 2 numeric - matrix plot max of 4
-  print(splom(df1[, num.vars[1:min(c(4,n.num))]]))
+  print(splom(data_cl_sample[, num.vars[1:min(c(4,n.num))]]))
 }
 
 if (n.fac>1) { # if at least 2 factors - plot first 2 if vcd installed
   if (require(vcd)) {
     require(vcd)
     form1 <- paste("~", paste(fac.vars[1:2], collapse="+"))
-    mosaic1 <- mosaic(xtabs(form1, data = df1))
+    mosaic1 <- mosaic(xtabs(form1, data = data_cl_sample))
   }
 }
 
 ## Example of ggplot2 pairs plot from GGally
 if (require(GGally)){
-  ncols <- ncol(df1)
+  ncols <- ncol(data_cl_sample)
   if (ncols > 6) {
-    ggpairs1 <- GGally::ggpairs(df1[,1:6])
+    ggpairs1 <- GGally::ggpairs(data_cl_sample[,1:6])
   } else {
-    ggpairs1 <- GGally::ggpairs(df1)
+    ggpairs1 <- GGally::ggpairs(data_cl_sample)
   }
   print(ggpairs1)
 } else {
@@ -153,18 +153,18 @@ if (require(GGally)){
 
 ## save some summary results if sensible
 
-@@DATAFRAME.SAVED@@ <- list(data = @@DATAFRAME.INPUT@@,
+data_sum <- list(data = data_cl,
                	        table1 = ifelse(exists("table1"), table1, NA),
 	                ggpairs1 = ifelse(exists("ggpairs1"), ggpairs1, NA),
 	                ggpairs1 = ifelse(exists("mosaic1"), mosaic1, NA))
 
-oldComment <- comment(@@DATAFRAME.INPUT@@)
+oldComment <- comment(data_cl)
 (newComment
-  <- paste("Summaries for '@@DATAFRAME.INPUT@@' saved at",
+  <- paste("Summaries for 'data_cl' saved at",
            date()))
-comment(@@DATAFRAME.SAVED@@) <- c(newComment, oldComment)
+comment(data_sum) <- c(newComment, oldComment)
 
 ### Store summary data for subsequent analysis/reports  ----------------
 
-save(@@DATAFRAME.SAVED@@,
-  file = file.path("@@DIR.DATA.SAVED@@", "@@RDATA.SAVED@@"))
+save(data_sum,
+  file = file.path("./reports", "summary_.RData"))
