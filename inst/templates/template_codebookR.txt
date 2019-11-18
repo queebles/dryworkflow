@@ -44,19 +44,21 @@ source(file.path('../lib', 'tttt.R')
 ### Changelog: -- insert comments and times re changes here --
 
 ## Specific libraries to be used. NB: can also be loaded in .Rprofile
-@@LIBRARIES@@
+pacman::p_load(tidyverse, cleaner, funModeling, DataExplorer, psych, visdat, inspectdf, GGally, RColorBrewer, ExPanDaR, haven)
 
 ## Source any R functions in own library directory
 ## Add any extra function files here or comment or delete to not load
 ## NB: You can source (load) all files in a directory 'myLib' with
 ##     lapply(Sys.glob(file.path("myLib", "*.R")), source)
-@@MYLIB.FILES@@
+## @@MYLIB.FILES@@
 
 ### Read in codebook file '@@DATAFILE@@' in '@@DIR.DATA.INPUT@@'
-@@INPUT.COMMANDS@@
+data_code <- readCodeBook('../data/codebook/data_codebook.csv')
+applyCodeBook(data_cl, data_code)
 
 ## Data structure
-str(@@DATAFRAME.SAVED@@)
+ls.str() # uncomment this line to see structure of all objects in workspace
+str(data_code)
 
 ### You can insert any transformations here or tidy up variable names
 ### and so on but ideally these should be carried out when cleaning
@@ -64,9 +66,9 @@ str(@@DATAFRAME.SAVED@@)
 ### but minor tweaks could be inserted here
 
 ### Store data for subsequent analysis
-comment(@@DATAFRAME.SAVED@@) <-
-  paste("Read codebook '@@DATAFILE@@' in '@@DIR.DATA.INPUT@@' at",
-        date())
+oldComment <- comment(data_code)
+newComment  <- paste("Data 'data_cl' from 'cl_data.RData' codebook at", date())
+comment(data_code) <- c(newComment, oldComment)
 
-save(@@DATAFRAME.SAVED@@,
-  file = file.path("@@DIR.DATA.SAVED@@", "@@RDATA.SAVED@@"))
+save(data_cl,
+  file = file.path("./reports", "codebook_data.RData"))
