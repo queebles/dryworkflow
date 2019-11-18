@@ -34,9 +34,9 @@ source(file.path('../lib', 'tttt.R')
 @@LICENCE@@ (eg licence GPL3 see <http://www.gnu.org/licenses/>)
 ------- END: DELETE THIS SECTION ---------------------------------
 ### File:    @@SYNTAX.FILE@@
-### Purpose: read @@PROJECT.STEP@@  '@@DATAFILE@@'
-###          in directory '@@DIR.DATA.INPUT@@'
-###          and store in '@@RDATA.SAVED@@' in 
+### Purpose: Codebook data stored
+###          in file @@RDATA.INPUT@@ in directory '@@DIR.DATA.INPUT@@'
+###          and store in @@RDATA.SAVED@@ in directory '@@DIR.DATA.SAVED@@'
 ### Created: @@DATE.CREATED@@ by 'dryworkflow::createProjectSkeleton'
 ### Author:  @@AUTHOR@@
 ### Licence: @@LICENCE@@
