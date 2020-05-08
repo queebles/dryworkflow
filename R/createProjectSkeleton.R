@@ -241,7 +241,7 @@ createProjectSkeleton <-function(
         warning("git user email not set. Please set with 'git config user.email'\n - see 'git config --help'")
       stop("Please set global option(s) and try again")
     } else {
-      drywOptions$git$user.name <- GIT.DEFAULT$present
+      drywOptions$git$present <- GIT.DEFAULT$present
       drywOptions$git$user.name <- GIT.DEFAULT$user.name
       drywOptions$git$user.email <- GIT.DEFAULT$user.email
     }
