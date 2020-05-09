@@ -265,7 +265,7 @@ createProjectSkeleton <-function(
   
   destinations <- projectDirs$destinations
   fileCategories <- names(destinations)
-  
+   
   ## create destination directories --------------------------------
   
   ## function to safely create directory - "borrowed" from package.skeleton
