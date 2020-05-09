@@ -229,7 +229,7 @@ createProjectSkeleton <-function(
   }
 
   ## check that git is set up ---------------------------------
-  if (drywOptions$git$present){
+  if (drywOptions$git$present = TRUE){
     GIT.DEFAULT <-
       list(present = TRUE,
            user.name = system("git config user.name", intern = TRUE),
